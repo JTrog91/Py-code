@@ -37,5 +37,5 @@ while playAgain == 'yes' or playAgain == 'y':
     displayIntro()
     caveNumber = chooseCave()
     checkCave(caveNumber)
-    playAgain = raw_input('Do you want to play again? (yes or no): ')
+    playAgain = input('Do you want to play again? (yes or no): ')
 
