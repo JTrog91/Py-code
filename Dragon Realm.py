@@ -12,9 +12,7 @@ is greedy and hungry and will eat you on sight.''')
 def chooseCave():
     cave=''
     while cave!= '1' and cave != '2':
-        print('Which cave will you go into? (1 or 2)')
-        cave = raw_input()
-
+        cave = input('Which cave will you go into? (1 or 2): ')
         return cave
 
 def checkCave(chosenCave):
@@ -39,7 +37,5 @@ while playAgain == 'yes' or playAgain == 'y':
     displayIntro()
     caveNumber = chooseCave()
     checkCave(caveNumber)
-
-    print('Do you want to play again? (yes or no)')
-    playAgain = raw_input()
+    playAgain = raw_input('Do you want to play again? (yes or no): ')
 
