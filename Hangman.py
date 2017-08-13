@@ -77,7 +77,7 @@ def getGuess (alreadyGuessed):
 
 def playAgain ():
     print('Do you want to play again? (yes or no)')
-    return input().lower().startswith('Y')
+    return input().lower().startswith('y')
 
 print('H A N G M A N')
 missedLetters = ''
@@ -102,14 +102,14 @@ while True:
         if foundAllLetters:
             print('Yes! The secret word is"' + secretWord + '"! You have won!')
             gameIsDone = True
-        else:
+    else:
             missedLetters = missedLetters + guess
 
             # Check if player has guessed too many times and lost.
-            if len(missedLetters) == len(HANGMAN_PICS) - 1:
-                displayBoard(missedLetters, correctLetters, secretWord)
-                print('You have run out of guesses!\nAfter ' + str(len(missedLetters)) + ' missed guesses and ' + str(len(correctLetters)) + ' correct guesses, the word was "' + secretWord + '"')
-                gameIsDone = True
+        if len(missedLetters) == len(HANGMAN_PICS) - 1:
+           displayBoard(missedLetters, correctLetters, secretWord)
+           print('You have run out of guesses!\nAfter ' + str(len(missedLetters)) + ' missed guesses and ' + str(len(correctLetters)) + ' correct guesses, the word was "' + secretWord + '"')
+           gameIsDone = True
 
         # Ask if the player wants to play again.
     if gameIsDone:
