@@ -46,8 +46,8 @@ HANGMAN_PICS = ['''
  / \  |
      ===''']
 words = {'Colors':'red orange yellow green blue purple indigo violet white black brown'.split(),
-'Shapes':'squair triangle rectangle circle ellipse rhombus trapezoid chevron pentagon hexagon septagon octagon'.split()
-'Fruits':'apple orange lemon lime pear watermelon grape grapefruit cherry banana cantaloupe mango strawberry tomato'.split()
+'Shapes':'squair triangle rectangle circle ellipse rhombus trapezoid chevron pentagon hexagon septagon octagon'.split(),
+'Fruits':'apple orange lemon lime pear watermelon grape grapefruit cherry banana cantaloupe mango strawberry tomato'.split(),
 'Animals':'bat bear beaver cat cougar crab deer dog donkey duck eagle fish goat leech mouse otter python squid tiger'.split()}
 
 def getRandomWord(wordDict):
@@ -106,10 +106,10 @@ difficulty = ''
 while difficulty not in 'EMH':
     print('Enter difficulty: E-Easy, M-Medium, H-Hard.')
     difficulty= input().upper()
-    if difficulty == 'M'
+    if difficulty == 'M':
         del HANGMAN_PICS[8]
         del HANGMAN_PICS[7]
-    if difficulty == 'H'
+    if difficulty == 'H':
         del HANGMAN_PICS[8]
         del HANGMAN_PICS[7]
         del HANGMAN_PICS[5]
