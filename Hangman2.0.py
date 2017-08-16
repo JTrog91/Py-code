@@ -102,7 +102,7 @@ def playAgain():
 
 print('H A N G M A N')
 
-difficulty = ''
+difficulty = 'easy'
 while difficulty not in 'EMH':
     print('Enter difficulty: E-Easy, M-Medium, H-Hard.')
     difficulty= input().upper()
