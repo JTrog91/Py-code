@@ -115,13 +115,13 @@ def get_computer_move(board, computer_letter):
 
         #Move on one of the sides.
         return choose_random_move_from_list([2, 4, 6, 8])
-    
-    def is_board_full(board):
-        #Returns True if every space on the board has been taken, otherwise return False.
-        for i in range(1,10):
-            if is_space_free(board, i):
-                return False
-            return True
+   
+def is_board_full(board):
+    #Returns True if every space on the board has been taken, otherwise return False.
+     for i in range(1,10):
+         if is_space_free(board, i):
+            return False
+         return True
 
 
 print('Welcome to Tic Tac Toe!')
