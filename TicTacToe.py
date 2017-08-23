@@ -125,3 +125,51 @@ def get_computer_move(board, computer_letter):
 
 
 print('Welcome to Tic Tac Toe!')
+
+while True:
+    #Reset the board.
+    the_board = [' '] * 10
+    player_letter, computer_letter = input_player_letter()
+    turn = who_goes_first()
+    print('The' + turn + 'will go first.')
+    game_is_playing = True
+
+    while game_is_playing:
+        if turn == 'player':
+            #Player's turn.
+            draw_board(the_board)
+            move = get_player_move(the_board)
+            make_move(the_board, player_letter, move)
+
+            if is_winner(the_board, player_letter):
+                draw_board(the_board)
+                print('Hooray! You have won the game!')
+                game_is_playing = False
+            else:
+                    if is_board_full(the_board):
+                        draw_board(the_board)
+                        print('The game is a tie!')
+                        break
+                    else:
+                        turn = 'computer'
+
+        else:
+            #Computer's turn
+            move =get_computer_move(the_board, computer_letter)
+            make_move(the_board, computer_letter, move)
+
+            if is_winner(the_board, computer_letter,):
+                draw_board(the_board)
+                print('The computer has beaten you! You lose.')
+                game_is_playing = False
+            else:
+                if is_board_full(the_board):
+                    draw_board(the_board)
+                    print('The game is a tie!')
+                    break
+                else:
+                    turn = 'player'
+
+    print('Do you want to play again? (yes or no )')
+    if not input() .lower() .startswith ('y'):
+        break
