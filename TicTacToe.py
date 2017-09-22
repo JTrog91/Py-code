@@ -17,7 +17,7 @@ def draw_board(board):
 def input_player_letter():
     # Lets the player type what letter they want to be.
     # Returns a list with the player's letter as the first item and the computer's as the second.
-    letter = ''
+    letter = ' '
     while not(letter == 'X' or letter == 'O'):
         print('Do you want to be X or O?')
         letter = input() .upper()
@@ -51,11 +51,14 @@ def is_winner(bo, le):
            (bo[1] == le and bo[2] == le and bo[3] == le) or
            # Down the left side.
            (bo[7] == le and bo[4] == le and bo[1] == le) or
-           (bo[8] == le and bo[5] == le and bo[2] == le) or  # Down the middle.
+            # Down the middle.
+           (bo[8] == le and bo[5] == le and bo[2] == le) or
            # Down the right side.
-           (bo[9] == le and bo[6] == le and bo[3 == le]) or
-           (bo[7] == le and bo[5] == le and bo[3 == le]) or  # Diagonal.
-           (bo[9] == le and bo[5] == le and bo[1] == le))  # Diagonal.
+           (bo[9] == le and bo[6] == le and bo[3] == le) or
+            # Diagonal.
+           (bo[7] == le and bo[5] == le and bo[3] == le) or 
+            # Diagonal.
+           (bo[9] == le and bo[5] == le and bo[1] == le)) 
 
 
 def get_board_copy(board):
@@ -88,10 +91,10 @@ def choose_random_move_from_list(board, moves_list):
         if is_space_free(board, i):
             possible_moves.append(i)
 
-            if len(possible_moves) != 0:
-                return random.choice(possible_moves)
-            else:
-                return None
+    if len(possible_moves) != 0:
+        return random.choice(possible_moves)
+    else:
+        return None
 
 
 def get_computer_move(board, computer_letter):
@@ -101,34 +104,34 @@ def get_computer_move(board, computer_letter):
     else:
         player_letter = 'X'
 
-        # This is the algorithm for the TTT AI
-        # First check if we can win in the next move.
-        for i in range(1, 10):
-            board_copy = get_board_copy(board)
-            if is_space_free(board, i):
-                make_move(board_copy, computer_letter, i)
-                if is_winner(board_copy, computer_letter):
-                    return i
+     # This is the algorithm for the TTT AI
+    # First check if we can win in the next move.
+    for i in range(1, 10):
+        board_copy = get_board_copy(board)
+        if is_space_free(board, i):
+            make_move(board_copy, computer_letter, i)
+            if is_winner(board_copy, computer_letter):
+                return i
 
-                # Check if player coul win on their next move and block them.
-        for i in range(1, 10):
-            board_copy = get_board_copy(board)
-            if is_space_free(board_copy, i):
-                make_move(board_copy, player_letter, i)
-                if is_winner(board_copy, player_letter):
-                    return i
+    # Check if player could win on their next move and block them.
+    for i in range(1, 10):
+        board_copy = get_board_copy(board)
+        if is_space_free(board_copy, i):
+            make_move(board_copy, player_letter, i)
+            if is_winner(board_copy, player_letter):
+                return i
 
-        # Try to take one of the corners if they are free.
-        move = choose_random_move_from_list(board, [1, 3, 7, 9])
-        if move != None:
-            return move
+    # Try to take one of the corners if they are free.
+    move = choose_random_move_from_list(board, [1, 3, 7, 9])
+    if move != None:
+        return move
 
-        # Try to take the center if it is free.
-        if is_space_free(board, 5):
-            return 5
+    # Try to take the center if it is free.
+    if is_space_free(board, 5):
+        return 5
 
-        # Move on one of the sides.
-        return choose_random_move_from_list([2, 4, 6, 8])
+    # Move on one of the sides.
+    return choose_random_move_from_list(board,[2, 4, 6, 8])
 
 
 def is_board_full(board):
@@ -136,7 +139,7 @@ def is_board_full(board):
     for i in range(1, 10):
         if is_space_free(board, i):
             return False
-        return True
+    return True
 
 
 print('Welcome to Tic Tac Toe!')
@@ -174,7 +177,7 @@ while True:
             make_move(the_board, computer_letter, move)
         
 
-            if is_winner(the_board, computer_letter,):
+            if is_winner(the_board, computer_letter):
                 draw_board(the_board)
                 print('The computer has beaten you! You lose.')
                 game_is_playing = False
