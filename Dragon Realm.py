@@ -7,14 +7,12 @@ def displayIntro():
 you see two caves. In one cave, the dragon is friendly
 and will share his treasure with you. the other dragon
 is greedy and hungry and will eat you on sight.''')
-print()
+    print('\n')
 
 def chooseCave():
     cave=''
     while cave!= '1' and cave != '2':
-        print('Which cave will you go into? (1 or 2)')
-        cave = input()
-
+        cave = input('Which cave will you go into? (1 or 2): ')
         return cave
 
 def checkCave(chosenCave):
@@ -23,7 +21,7 @@ def checkCave(chosenCave):
     print('It is dark and spooky....')
     time.sleep(2)
     print('A large dragon jumps out in front of you! he opens his jaws and....')
-    print()
+    print('')
     time.sleep(2)
 
     friendlyCave = random.randint(1, 2)
@@ -35,10 +33,9 @@ def checkCave(chosenCave):
 
 playAgain = 'yes'
 while playAgain == 'yes' or playAgain == 'y':
+    print('\n')
     displayIntro()
     caveNumber = chooseCave()
     checkCave(caveNumber)
-
-    print('Do you want to play again? (yes or no)')
-    playAgain = input()
+    playAgain = input('Do you want to play again? (yes or no): ')
 
